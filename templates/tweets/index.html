@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Pictweet</title>
+</head>
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<form action="{% url 'Tweets:search' %}" method="get" class="search-form">
+  {{ form.keyword }}
+  <input type="submit" class="search-btn" value="検索">
+</form>
+
+<div class="contents row">
+  {% include 'tweets/_tweet_list.html' %}
+</div>
+
+<body>
+<h1>投稿一覧</h1>
+<ul>
+  {% for tweet in tweets %}
+  <li>{{ tweet.name }} {{ tweet.text }} ({{ tweet.created_at }})</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Pictweet</title>
+</head>
+
+<body>
+<h1>投稿一覧</h1>
+<ul>
+  {% for tweet in tweets %}
+  <li>{{ tweet.name }} {{ tweet.text }} ({{ tweet.created_at }})</li>
+  {% endfor %}
+</ul>
+</body>
+
+</html>
